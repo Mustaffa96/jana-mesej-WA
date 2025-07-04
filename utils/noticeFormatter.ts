@@ -11,6 +11,24 @@ export interface MeetingData {
 }
 
 /**
+ * Annual General Meeting (AGM) data interface
+ */
+export interface AGMData {
+  organization: string;
+  date: string;
+  venue: string;
+  fee: string;
+  delegateCount: string;
+  schedule: string;
+  potluck: boolean;
+  contactLink: string;
+  contactName: string;
+  contactEmail: string;
+  motto: string;
+  secretary: string;
+}
+
+/**
  * Registration data interface
  */
 export interface RegistrationData {
@@ -203,6 +221,74 @@ ${formattedContacts}
  * @param {WeddingInvitationData} weddingData - Wedding invitation details
  * @returns {string} - Formatted wedding invitation text
  */
+/**
+ * Format Annual General Meeting (AGM) notice for WhatsApp
+ * @param {AGMData} agmData - AGM details
+ * @returns {string} - Formatted AGM notice text
+ */
+export const formatAGM = (agmData: AGMData): string => {
+  const {
+    organization,
+    date,
+    venue,
+    fee,
+    delegateCount,
+    schedule,
+    potluck,
+    contactLink,
+    contactName,
+    contactEmail,
+    motto,
+    secretary,
+  } = agmData;
+
+  // Format the date to Malaysian format (DD/MM/YYYY)
+  const formattedDate = date
+    ? new Date(date).toLocaleDateString('ms-MY', {
+        day: '2-digit',
+        month: 'long',
+        year: 'numeric',
+      })
+    : '';
+
+  // Format schedule as separate lines
+  const formattedSchedule = schedule
+    .split('\n')
+    .filter(item => item.trim() !== '')
+    .join('\n');
+
+  // Build the AGM notice text
+  let agmText = `${organization} (Rasmi)\nTarikh: ${formattedDate}\n\nالسلام عليكم ورحمة الله وبركاته.\n\nMEMO:\n*NOTIS MESYUARAT AGUNG TAHUNAN ${organization} SESI ${new Date(date).getFullYear()}/${new Date(date).getFullYear() + 1}*\n\n1. Dimaklumkan Mesyuarat Agung akan diadakan pada ketetapan berikut:\n\n📅 : *${formattedDate} (${['Ahad', 'Isnin', 'Selasa', 'Rabu', 'Khamis', 'Jumaat', 'Sabtu'][new Date(date).getDay()]})*\n🏢 : *${venue}*\n`;
+
+  // Add schedule
+  agmText += `⏰: *${formattedSchedule}*\n`;
+
+  // Add fee if provided
+  if (fee) {
+    agmText += `*Yuran : ${fee}*\n`;
+  }
+
+  // Add delegate count if provided
+  if (delegateCount) {
+    agmText += `*Perwakilan : ${delegateCount}*\n\n`;
+  }
+
+  // Add potluck message if enabled
+  if (potluck) {
+    agmText += `\n*Digalakkan semua Muslimat untuk membawa makanan untuk berkongsi juadah secara pot luck. ✨*\n\n`;
+  }
+
+  // Add contact information
+  agmText += `Sebarang urusan boleh rujuk kepada ${contactLink}\n(${contactName})\n\nTerima Kasih💐💐\n\n*_${motto}_*\n\n${secretary}\n*Setiausaha ${organization}*`;
+
+  // Add email if provided
+  if (contactEmail) {
+    agmText += `\nEmail: ${contactEmail}`;
+  }
+
+  return agmText;
+};
+
 export const formatWeddingInvitation = (weddingData: WeddingInvitationData): string => {
   const {
     bismillah,

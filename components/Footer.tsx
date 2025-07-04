@@ -2,14 +2,14 @@ import { FaGithub, FaInstagram } from 'react-icons/fa';
 
 export default function Footer(): JSX.Element {
   return (
-    <footer className="bg-white border-t mt-8">
+    <footer className="bg-white dark:bg-gray-900 border-t dark:border-gray-800 mt-8">
       <div className="container mx-auto py-6 px-4">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-4 md:mb-0">
-            <p className="text-sm text-gray-600">
+            <p className="text-sm text-gray-600 dark:text-gray-300">
               &copy; {new Date().getFullYear()} Jana Mesej Mesyuarat WhatsApp
             </p>
-            <p className="text-xs text-gray-500 mt-1">
+            <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
               Aplikasi untuk menjana notis mesyuarat dalam format WhatsApp
             </p>
           </div>
@@ -19,7 +19,7 @@ export default function Footer(): JSX.Element {
               href="https://github.com/Mustaffa96/jana-mesej-WA"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-600 hover:text-secondary transition-colors"
+              className="text-gray-600 dark:text-gray-400 hover:text-secondary transition-colors"
               aria-label="GitHub Repository"
             >
               <FaGithub size={20} />

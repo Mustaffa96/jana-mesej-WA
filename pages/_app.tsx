@@ -3,6 +3,7 @@ import type { AppProps } from 'next/app';
 import PrivacyPopup from '../components/PrivacyPopup';
 import AccessibilityHelper from '../components/AccessibilityHelper';
 import { useEffect, useState } from 'react';
+import { ThemeProvider } from '../context/ThemeContext';
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
   // Use client-side only rendering for the popup to avoid hydration issues
@@ -13,7 +14,7 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
   }, []);
 
   return (
-    <>
+    <ThemeProvider>
       <Component {...pageProps} />
       {mounted && (
         <>
@@ -21,7 +22,7 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
           <AccessibilityHelper />
         </>
       )}
-    </>
+    </ThemeProvider>
   );
 }
 

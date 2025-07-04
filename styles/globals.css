@@ -8,6 +8,11 @@
   --font-size-multiplier: 1;
 }
 
+.dark {
+  --foreground-rgb: 255, 255, 255;
+  --background-rgb: 15, 23, 42;
+}
+
 body {
   color: rgb(var(--foreground-rgb));
   background: rgb(var(--background-rgb));
@@ -54,10 +59,10 @@ body.high-contrast button {
   }
 
   .form-input {
-    @apply w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary;
+    @apply w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary dark:border-gray-600 dark:bg-gray-800 dark:text-white;
   }
 
   .form-label {
-    @apply block text-gray-700 text-sm font-bold mb-2;
+    @apply block text-gray-700 text-sm font-bold mb-2 dark:text-gray-300;
   }
 }

@@ -48,11 +48,11 @@ export default function Home(): JSX.Element {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50">
+    <div className="min-h-screen flex flex-col bg-gray-50 dark:bg-gray-800">
       <Header />
 
       <main className="flex-grow container mx-auto py-8 px-4">
-        <h1 className="text-3xl font-bold text-center text-secondary mb-8">
+        <h1 className="text-3xl font-bold text-center text-secondary dark:text-white mb-8">
           Jana Notis Mesyuarat WhatsApp
         </h1>
 
@@ -139,7 +139,7 @@ export default function Home(): JSX.Element {
                   placeholder="Masukkan setiap agenda pada baris baru"
                   required
                 ></textarea>
-                <p className="text-xs text-gray-500 mt-1">
+                <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
                   *Masukkan setiap agenda pada baris baru
                 </p>
               </div>
@@ -152,11 +152,13 @@ export default function Home(): JSX.Element {
 
           {/* Preview Section */}
           <div className="bg-white p-6 rounded-lg shadow-md">
-            <h2 className="text-xl font-semibold mb-4 text-secondary">Pratonton & Kongsi</h2>
+            <h2 className="text-xl font-semibold mb-4 text-secondary dark:text-white">
+              Pratonton & Kongsi
+            </h2>
 
             {generatedNotice ? (
               <div className="space-y-4">
-                <div className="bg-gray-100 p-4 rounded-lg whitespace-pre-wrap text-sm font-mono h-64 overflow-y-auto">
+                <div className="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg whitespace-pre-wrap text-sm font-mono h-64 overflow-y-auto dark:text-gray-200">
                   {generatedNotice}
                 </div>
 
@@ -170,14 +172,14 @@ export default function Home(): JSX.Element {
 
                   <button
                     onClick={handleCopyToClipboard}
-                    className="flex items-center justify-center bg-gray-200 text-gray-800 py-2 px-4 rounded hover:bg-gray-300 transition-colors"
+                    className="flex items-center justify-center bg-gray-200 text-gray-800 dark:bg-gray-600 dark:text-white py-2 px-4 rounded hover:bg-gray-300 dark:hover:bg-gray-500 transition-colors"
                   >
                     <FaCopy className="mr-2" /> {copied ? 'Disalin!' : 'Salin'}
                   </button>
                 </div>
               </div>
             ) : (
-              <div className="flex flex-col items-center justify-center h-64 text-gray-400">
+              <div className="flex flex-col items-center justify-center h-64 text-gray-400 dark:text-gray-500">
                 <p>Notis mesyuarat akan dipaparkan di sini</p>
               </div>
             )}
