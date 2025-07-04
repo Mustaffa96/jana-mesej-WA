@@ -1,0 +1,51 @@
+{
+  "name": "jana-mesej-wa",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Aplikasi web untuk menjana notis mesyuarat dalam format WhatsApp",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "type-check": "tsc --noEmit",
+    "clean": "rimraf .next node_modules",
+    "format": "prettier --write .",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "check-all": "pnpm format && pnpm lint && pnpm type-check && pnpm test"
+  },
+  "dependencies": {
+    "next": "14.0.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-icons": "4.11.0"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.1.4",
+    "@testing-library/react": "^14.0.0",
+    "@types/jest": "^29.5.6",
+    "@types/node": "20.8.10",
+    "@types/react": "18.2.34",
+    "@types/react-dom": "18.2.14",
+    "@typescript-eslint/eslint-plugin": "^6.9.0",
+    "@typescript-eslint/parser": "^6.9.0",
+    "autoprefixer": "10.4.16",
+    "eslint": "8.52.0",
+    "eslint-config-next": "14.0.0",
+    "eslint-plugin-jest": "^27.6.0",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "postcss": "8.4.31",
+    "prettier": "^3.0.3",
+    "rimraf": "^5.0.5",
+    "tailwindcss": "3.3.5",
+    "typescript": "5.2.2"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=8.0.0"
+  },
+  "packageManager": "pnpm@8.10.0"
+}
